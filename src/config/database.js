@@ -3,7 +3,7 @@ module.exports = {
   username: 'docker',
   password: 'docker',
   database: 'nodetdd',
-  dialect: 'postegres',
+  dialect: 'postgres',
   operatorsAliases: false,
   logging: false,
   define: {
