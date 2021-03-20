@@ -1,0 +1,16 @@
+{
+  "name": "node-with-tdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MarcosPaesLeme/node-with-tdd.git",
+  "author": "Marcos Paes Leme de Souza <Marcos.Paes.Leme.De.Souza@ibm.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
