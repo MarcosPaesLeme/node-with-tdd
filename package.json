@@ -5,12 +5,18 @@
   "repository": "https://github.com/MarcosPaesLeme/node-with-tdd.git",
   "author": "Marcos Paes Leme de Souza <Marcos.Paes.Leme.De.Souza@ibm.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js ignore __test__",
+    "initialize-postegres": "docker run --name postegres-db -p 5432:5432 -e POSTGRES_PASSWORD=docker -e POSTGRES_USER=docker -e POSTGRES_DB=nodetdd -d postgres"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "sequelize": "^6.5.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.7",
     "sequelize-cli": "^6.2.0"
   }
 }
