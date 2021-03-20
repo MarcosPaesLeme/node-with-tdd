@@ -1,8 +1,12 @@
 const request = require('supertest');
 const { User } = require('../../src/app/models');
+const truncate = require('../utils/truncate');
 const app = require('../../src/app');
 
 describe('Authentication', () => {
+  beforeEach(async () => {
+    await truncate();
+  });
   // 'should receive JWT token when authenticaded with valid credentials'
   it('should authenticate with valid credentials', async () => {
     const user = await User.create({
