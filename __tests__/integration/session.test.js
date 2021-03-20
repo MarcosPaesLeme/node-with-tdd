@@ -7,7 +7,7 @@ describe('Authentication', () => {
   beforeEach(async () => {
     await truncate();
   });
-  // 'should receive JWT token when authenticaded with valid credentials'
+
   it('should authenticate with valid credentials', async () => {
     const user = await User.create({
       name: 'Marcos',
@@ -21,5 +21,20 @@ describe('Authentication', () => {
     });
 
     expect(response.status).toBe(200);
+  });
+
+  it('should not authenticate with invalid credentials', async () => {
+    const user = await User.create({
+      name: 'Marcos',
+      email: 'marcos2@gmail.com',
+      password_hash: '123123',
+    });
+
+    const response = await request(app).post('/sessions').send({
+      email: user.email,
+      password_hash: '123456',
+    });
+
+    expect(response.status).toBe(401);
   });
 });
