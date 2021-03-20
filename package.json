@@ -8,16 +8,23 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js ignore __test__",
-    "initialize-postegres": "docker run --name postegres-db -p 5432:5432 -e POSTGRES_PASSWORD=docker -e POSTGRES_USER=docker -e POSTGRES_DB=nodetdd -d postgres"
+    "initialize-postegres": "docker run --name postegres-db -p 5432:5432 -e POSTGRES_PASSWORD=docker -e POSTGRES_USER=docker -e POSTGRES_DB=nodetdd -d postgres",
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "NODE_ENV=test jest",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all",
+    "jest": "^26.6.3"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",
-    "sequelize": "^6.5.1"
+    "sequelize": "^6.5.1",
+    "sqlite3": "^5.0.2",
+    "sequelize-cli": "^5.4.0",
+    "jest": "^24.1.0",
+    "supertest": "^3.4.2"
   },
   "devDependencies": {
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.7",
-    "sequelize-cli": "^6.2.0"
+    "nodemon": "^2.0.7"
   }
 }
