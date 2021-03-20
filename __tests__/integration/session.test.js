@@ -15,7 +15,7 @@ describe('Authentication', () => {
       password_hash: '123123',
     });
 
-    const response = await request(app).post('/seesions').send({
+    const response = await request(app).post('/sessions').send({
       email: user.email,
       password_hash: '123123',
     });
